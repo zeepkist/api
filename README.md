@@ -29,38 +29,40 @@ console.log(records) // { totalAmount: 700, records: [{ ... }] }
 
 To see all available exports and options, see the [package documentation](https://zeepkist.github.io/gtr-api).
 
-## First-time Project Setup
+## Contributing
+
+### First-time Project Setup
 
 ```sh
 yarn
 yarn dlx @yarnpkg/sdks vscode
 ```
 
-## Compile and Hot-Reload for Development
+### Compile and Hot-Reload for Development
 
 ```sh
 yarn dev
 ```
 
-## Type-Check, Compile and Minify for Production
+### Type-Check, Compile and Minify for Production
 
 ```sh
 yarn build
 ```
 
-## Run tests
+### Run tests
 
 ```sh
 yarn test
 ```
 
-## Run tests with code coverage
+### Run tests with code coverage
 
 ```sh
 yarn coverage
 ```
 
-## Lint with [ESLint](https://eslint.org/)
+### Lint with [ESLint](https://eslint.org/)
 
 ```sh
 yarn lint
