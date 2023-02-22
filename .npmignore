@@ -13,3 +13,5 @@ tsconfig.json
 .gitattributes
 .gitignore
 yarn.lock
+dist/**/*.spec.js
+dist/**/*.spec.d.ts
