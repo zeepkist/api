@@ -1,9 +1,10 @@
 import { Limit, Offset } from './generic.js'
 
 export interface TrackOfTheDayParameters {
-  Date: string
+  Date?: string
 }
 
-export interface TrackOfTheDayRankingsParameters extends Limit, Offset {
-  Date: string
-}
+export interface TrackOfTheDayRankingsParameters
+  extends Limit,
+    Offset,
+    TrackOfTheDayParameters {}
