@@ -6,9 +6,9 @@ import { handleGet } from '../utils/index.js'
  * Get a list of upvotes for a level
  * @category Upvote
  * @example
- * import { upvotes } from '@zeepkist/gtr-api'
+ * import { getUpvotes } from '@zeepkist/gtr-api'
  *
- * const data = await upvotes({ LevelId: 1 })
+ * const upvotes = await getUpvotes({ LevelId: 1 })
  */
-export const upvotes = async (parameters: UpvotesParameters) =>
+export const getUpvotes = async (parameters: UpvotesParameters) =>
   handleGet<UpvotesResponse>('upvotes/get', parameters)

@@ -6,11 +6,11 @@ import { handleGet } from '../utils/index.js'
  * Get a list of levels
  * @category Level
  * @example
- * import { levels } from '@zeepkist/gtr-api'
+ * import { getLevels } from '@zeepkist/gtr-api'
  *
- * const data = await levels({ Author: 'Yannic' })
+ * const levels = await getLevels({ Author: 'Yannic' })
  */
-export const levels = async (parameters: LevelsParameters) =>
+export const getLevels = async (parameters: LevelsParameters) =>
   handleGet<LevelsResponse>('records', parameters)
 
 /**
@@ -19,7 +19,7 @@ export const levels = async (parameters: LevelsParameters) =>
  * @example
  * import { searchLevels } from '@zeepkist/gtr-api'
  *
- * const data = await searchLevels({ Query: 'Level 01' })
+ * const levels = await searchLevels({ Query: 'Level 01' })
  */
 export const searchLevels = async (parameters: SearchLevelsParameters) =>
   handleGet<LevelsResponse>('records/recent', parameters)

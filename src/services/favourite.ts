@@ -10,9 +10,9 @@ import { handleGet } from '../utils/index.js'
  * Get a list of a user's favorite tracks.
  * @category Favourite
  * @example
- * import { favourites } from '@zeepkist/gtr-api'
+ * import { getFavourites } from '@zeepkist/gtr-api'
  *
- * const data = await favourites({ UserId: 1 })
+ * const favourites = await getFavourites({ UserId: 1 })
  */
-export const favourites = async (parameters: FavouritesParameters) =>
+export const getFavourites = async (parameters: FavouritesParameters) =>
   handleGet<FavouritesResponse>('favorites/get', parameters)

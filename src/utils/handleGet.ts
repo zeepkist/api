@@ -1,13 +1,19 @@
 import { api } from '../api.js'
 import { stringifyObjectValues } from './index.js'
+
+export interface ErrorMessage {
+  property: string
+  message: string
+}
+
 /**
  * @category Utilities
  */
-export interface HandleGetResponse<T> {
+export interface ErrorResponse {
   ok: boolean
   status: number
   statusText: string
-  data: T
+  error: ErrorMessage[]
 }
 
 /**
@@ -31,12 +37,14 @@ export const handleGet = async <T>(
     searchParams: searchParameters
   })
 
-  const response: HandleGetResponse<T> = {
+  if (ok) return json() as T
+
+  const error: ErrorResponse = {
     ok,
     status,
     statusText,
-    data: (await json()) as T
+    error: (await json()) as ErrorMessage[]
   }
 
-  return response
+  return error
 }
