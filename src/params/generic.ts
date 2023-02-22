@@ -1,7 +1,11 @@
 export interface Limit {
-  Limit: number
+  Limit?: number
 }
 
 export interface Offset {
-  Offset: number
+  Offset?: number
+}
+
+export interface Sort {
+  Sort?: string
 }

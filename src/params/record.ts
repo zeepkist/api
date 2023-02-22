@@ -1,17 +1,16 @@
-import { Limit, Offset } from './generic.js'
+import { Limit, Offset, Sort } from './generic.js'
 
-export interface RecordsParameters extends Limit, Offset {
-  LevelId: number
-  LevelUid: string
-  LevelWorkshopId: string
-  UserSteamId: string
-  UserId: number
-  BestOnly: boolean
-  ValidOnly: boolean
-  InvalidOnly: boolean
-  WorldRecordOnly: boolean
-  MinimumTime: number
-  MaximumTime: number
-  GameVersion: string
-  Sort: string
+export interface RecordsParameters extends Limit, Offset, Sort {
+  LevelId?: number
+  LevelUid?: string
+  LevelWorkshopId?: string
+  UserSteamId?: string
+  UserId?: number
+  BestOnly?: boolean
+  ValidOnly?: boolean
+  InvalidOnly?: boolean
+  WorldRecordOnly?: boolean
+  MinimumTime?: number
+  MaximumTime?: number
+  GameVersion?: string
 }
