@@ -1,6 +1,6 @@
 import { Limit, Offset } from './generic.js'
 
-export interface VoteParameters extends Limit, Offset {
+export interface VotesParameters extends Limit, Offset {
   LevelId: number
   LevelUid: string
   LevelWorkshopId: string
@@ -8,6 +8,6 @@ export interface VoteParameters extends Limit, Offset {
   UserId: number
 }
 
-export interface VoteAverageParameters extends Limit, Offset {
+export interface VotesAverageParameters extends Limit, Offset {
   LevelId: number
 }
