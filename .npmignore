@@ -15,3 +15,5 @@ tsconfig.json
 yarn.lock
 dist/**/*.spec.js
 dist/**/*.spec.d.ts
+.pnp.cjs
+.pnp.loader.mjs
