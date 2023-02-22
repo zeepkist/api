@@ -1,4 +1,4 @@
-import { Response } from './generic.js'
+import { PaginatedResponse } from './generic.js'
 import { Level } from './level.js'
 import { User } from './user.js'
 
@@ -28,14 +28,14 @@ export interface VoteCategory {
   value: VoteCategoryEnum
 }
 
-export interface VoteResponse extends Response {
+export interface VotesResponse extends PaginatedResponse {
   votes: Vote[]
 }
 
-export interface VoteAverageResponse {
+export interface VotesAverageResponse {
   averageScores: VoteAverage[]
 }
 
-export interface VoteCategoryResponse {
+export interface VotesCategoryResponse {
   categories: VoteCategory[]
 }

@@ -1,3 +1,3 @@
-export interface Response {
+export interface PaginatedResponse {
   totalAmount: number
 }
