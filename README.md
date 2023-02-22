@@ -18,13 +18,13 @@ npm install @zeepkist/gtr-api
 ### Import and use
 
 ```ts
-import { records } from '@zeepkist/gtr-api'
+import { getRecords } from '@zeepkist/gtr-api'
 
-const response = await records({
+const records = await getRecords({
   BestOnly: true
 })
 
-console.log(response) // { ok: true, status: 200, data: { ...records... } }
+console.log(records) // { totalAmount: 700, records: [{ ... }] }
 ```
 
 To see all available exports and options, see the [package documentation](https://zeepkist.github.io/gtr-api).
