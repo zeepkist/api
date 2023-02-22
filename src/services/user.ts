@@ -16,42 +16,42 @@ import { handleGet } from '../utils/index.js'
  * Get a user by Id or SteamId
  * @category User
  * @example
- * import { user } from '@zeepkist/gtr-api'
+ * import { getUser } from '@zeepkist/gtr-api'
  *
- * const data = await user({ Id: 1 })
+ * const user = await getUser({ Id: 1 })
  */
-export const user = async (parameters: UserParameters) =>
+export const getUser = async (parameters: UserParameters) =>
   handleGet<User>(parameters.Id ? 'users/id' : 'users/steamid', parameters)
 
 /**
  * Get a list of users
  * @category User
  * @example
- * import { users } from '@zeepkist/gtr-api'
+ * import { getUsers } from '@zeepkist/gtr-api'
  *
- * const data = await users({ Limit: 5 })
+ * const users = await getUsers({ Limit: 5 })
  */
-export const users = async (parameters: UsersParameters) =>
+export const getUsers = async (parameters: UsersParameters) =>
   handleGet<UsersResponse>('users', parameters)
 
 /**
  * Get a user's world record count rank
  * @category User
  * @example
- * import { userRanking } from '@zeepkist/gtr-api'
+ * import { getUserRanking } from '@zeepkist/gtr-api'
  *
- * const data = await userRanking({ UserId: 1 })
+ * const ranking = await getUserRanking({ UserId: 1 })
  */
-export const userRanking = async (parameters: UserRankingParameters) =>
+export const getUserRanking = async (parameters: UserRankingParameters) =>
   handleGet<UserRanking>('users/ranking', parameters)
 
 /**
  * Get a list of users by world record count
  * @category User
  * @example
- * import { userRankings } from '@zeepkist/gtr-api'
+ * import { getUserRankings } from '@zeepkist/gtr-api'
  *
- * const data = await userRankings({ Limit: 5 })
+ * const rankings = await getUserRankings({ Limit: 5 })
  */
-export const userRankings = async (parameters: UserRankingsParameters) =>
+export const getUserRankings = async (parameters: UserRankingsParameters) =>
   handleGet<UserRankingsResponse>('users/rankings', parameters)
