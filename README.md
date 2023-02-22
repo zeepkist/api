@@ -1,5 +1,32 @@
 # GTR API
 
+Fully typed TypeScript API client for the [GTR API](https://api.zeepkist-gtr.com).
+
+Up-to-date with `v0.16.2` of the GTR API.
+
+## Usage
+
+### Install dependencies
+
+```sh
+yarn add @zeepkist/gtr-api
+
+# or with npm:
+npm install @zeepkist/gtr-api
+```
+
+### Import and use
+
+```ts
+import { records } from '@zeepkist/gtr-api'
+
+await records({
+  BestOnly: true
+})
+```
+
+To see all available exports and options, see the [package documentation](https://zeepkist.github.io/gtr-api).
+
 ## First-time Project Setup
 
 ```sh
