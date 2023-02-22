@@ -1,5 +1,6 @@
-export const stringifyObjectValues = (obj: Record<string, any>) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const stringifyObjectValues = (object: Record<string, any>) => {
   return Object.fromEntries(
-    Object.entries(obj).map(([key, value]) => [key, value.toString()])
+    Object.entries(object).map(([key, value]) => [key, value?.toString()])
   )
 }

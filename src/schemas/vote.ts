@@ -17,8 +17,8 @@ export interface Vote {
 }
 
 export interface VoteAverage {
-  level: number,
-  category: VoteCategoryEnum,
+  level: number
+  category: VoteCategoryEnum
   averageScore: number
   amountOfVotes: number
 }
