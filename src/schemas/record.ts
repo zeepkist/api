@@ -2,6 +2,9 @@ import { PaginatedResponse } from './generic.js'
 import { Level } from './level.js'
 import { User } from './user.js'
 
+/**
+ * @category Record
+ */
 export interface Record {
   id: number
   dateCreated: string
@@ -17,10 +20,16 @@ export interface Record {
   level: Level
 }
 
+/**
+ * @category Record
+ */
 export interface RecordsResponse extends PaginatedResponse {
   records: Record[]
 }
 
+/**
+ * @category Record
+ */
 export interface RecentRecordsResponse {
   records: Record[]
 }

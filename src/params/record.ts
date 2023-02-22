@@ -1,5 +1,8 @@
 import { Limit, Offset, Sort } from './generic.js'
 
+/**
+ * @category Record
+ */
 export interface RecordsParameters extends Limit, Offset, Sort {
   LevelId?: number
   LevelUid?: string
