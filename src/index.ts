@@ -1,1 +1,6 @@
+export * from './services/favourite.js'
+export * from './services/level.js'
+export * from './services/trackOfTheDay.js'
+export * from './services/upvote.js'
+export * from './services/user.js'
 export * from './services/vote.js'
