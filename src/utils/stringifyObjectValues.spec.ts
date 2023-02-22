@@ -2,7 +2,7 @@ import test from 'ava'
 
 import { stringifyObjectValues } from './index.js'
 
-test('todo', t => {
+test('stringifyObjectValues()', t => {
   t.deepEqual(
     stringifyObjectValues({
       string: 'string',

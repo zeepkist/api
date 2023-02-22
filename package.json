@@ -63,7 +63,9 @@
     ],
     "exclude": [
       ".pnp.cjs",
-      ".pnp.loader.mjs"
+      ".pnp.loader.mjs",
+      "dist/**/*.d.ts",
+      "dist/**/*.spec.js"
     ]
   },
   "renovate": {
