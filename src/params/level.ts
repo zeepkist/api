@@ -1,5 +1,8 @@
 import { Limit, Offset, Sort } from './generic.js'
 
+/**
+ * @category Level
+ */
 export interface LevelsParameters extends Sort {
   Id?: number
   Uid?: string
@@ -10,6 +13,9 @@ export interface LevelsParameters extends Sort {
   InvalidOnly?: boolean
 }
 
+/**
+ * @category Level
+ */
 export interface SearchLevelsParameters extends Limit, Offset {
   Query?: string
   MinAuthor?: number

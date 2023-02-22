@@ -112,5 +112,4 @@ typings/
 .pnp.loader.mjs
 
 dist
-data
-output
+docs

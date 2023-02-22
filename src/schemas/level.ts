@@ -1,5 +1,8 @@
 import { PaginatedResponse } from './generic.js'
 
+/**
+ * @category Level
+ */
 export interface Level {
   id: number
   uniqueId: string
@@ -14,6 +17,9 @@ export interface Level {
   thumbnailUrl: string
 }
 
+/**
+ * @category Level
+ */
 export interface LevelsResponse extends PaginatedResponse {
   levels: Level[]
 }
