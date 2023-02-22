@@ -60,6 +60,10 @@
       "lcov",
       "text",
       "text-summary"
+    ],
+    "exclude": [
+      ".pnp.cjs",
+      ".pnp.loader.mjs"
     ]
   },
   "renovate": {
