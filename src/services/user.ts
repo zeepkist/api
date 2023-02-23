@@ -20,8 +20,15 @@ import { handleGet } from '../utils/index.js'
  *
  * const user = await getUser({ Id: 1 })
  */
-export const getUser = async (parameters: UserParameters) =>
-  handleGet<User>(parameters.Id ? 'users/id' : 'users/steamid', parameters)
+export const getUser = async (parameters: UserParameters) => {
+  if (!parameters.Id && !parameters.SteamId) {
+    throw new TypeError('You must provide either an Id or a SteamId')
+  }
+  return handleGet<User>(
+    parameters.Id ? 'users/id' : 'users/steamid',
+    parameters
+  )
+}
 
 /**
  * Get a list of users
