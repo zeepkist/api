@@ -6,7 +6,40 @@ Up-to-date with `v0.16.2` of the GTR API.
 
 ## Usage
 
-### Install dependencies
+### CDN
+
+```html
+<script type="module">
+  import { getRecords } from 'https://esm.run/@zeepkist/gtr-api'
+  
+  async function displayRecords() {
+    const records = await getRecords({
+      BestOnly: true
+    })
+  
+    console.log(records) // { totalAmount: 700, records: [{ ... }] }
+  }
+  
+  displayRecords()
+</script>
+```
+
+### Deno
+
+```js
+import { getRecords } from 'https://esm.run/@zeepkist/gtr-api'
+
+const records = await getRecords({
+  BestOnly: true
+})
+
+console.log(records) // { totalAmount: 700, records: [{ ... }] }
+```
+
+
+### Node / Bundlers
+
+#### Install dependencies
 
 ```sh
 yarn add @zeepkist/gtr-api
@@ -15,7 +48,7 @@ yarn add @zeepkist/gtr-api
 npm install @zeepkist/gtr-api
 ```
 
-### Import and use
+#### Import and use
 
 ```ts
 import { getRecords } from '@zeepkist/gtr-api'
