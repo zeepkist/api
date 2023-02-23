@@ -3,9 +3,10 @@ import { Level } from './level.js'
 import { User } from './user.js'
 
 /**
+ * Note: Not named Record because it conflicts with the built-in Record type.
  * @category Record
  */
-export interface Record {
+export interface LevelRecord {
   id: number
   dateCreated: string
   time: number
@@ -24,12 +25,12 @@ export interface Record {
  * @category Record
  */
 export interface RecordsResponse extends PaginatedResponse {
-  records: Record[]
+  records: LevelRecord[]
 }
 
 /**
  * @category Record
  */
 export interface RecentRecordsResponse {
-  records: Record[]
+  records: LevelRecord[]
 }
