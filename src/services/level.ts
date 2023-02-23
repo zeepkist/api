@@ -11,7 +11,7 @@ import { handleGet } from '../utils/index.js'
  * const levels = await getLevels({ Author: 'Yannic' })
  */
 export const getLevels = async (parameters: LevelsParameters) =>
-  handleGet<LevelsResponse>('records', parameters)
+  handleGet<LevelsResponse>('levels', parameters)
 
 /**
  * Search for levels
@@ -22,4 +22,4 @@ export const getLevels = async (parameters: LevelsParameters) =>
  * const levels = await searchLevels({ Query: 'Level 01' })
  */
 export const searchLevels = async (parameters: SearchLevelsParameters) =>
-  handleGet<LevelsResponse>('records/recent', parameters)
+  handleGet<LevelsResponse>('levels/search', parameters)

@@ -18,7 +18,7 @@ export const handleGet = async <T>(
     stringifyObjectValues(parameters)
   )
 
-  const { json } = await api.get(url, {
+  const { json } = api.get(url, {
     searchParams: searchParameters
   })
 
