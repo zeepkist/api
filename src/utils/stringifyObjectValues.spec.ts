@@ -8,7 +8,8 @@ test('stringifyObjectValues()', t => {
       string: 'string',
       number: 1,
       boolean: true,
-      array: ['1', 2, true]
+      array: ['1', 2, true],
+      undefined: undefined
     }),
     {
       string: 'string',
