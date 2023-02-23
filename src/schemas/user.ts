@@ -20,6 +20,13 @@ export interface UserRanking {
 /**
  * @category User
  */
+export interface UserRankings extends UserRanking {
+  user: User
+}
+
+/**
+ * @category User
+ */
 export interface UsersResponse extends PaginatedResponse {
   users: User[]
 }
@@ -28,7 +35,5 @@ export interface UsersResponse extends PaginatedResponse {
  * @category User
  */
 export interface UserRankingsResponse extends PaginatedResponse {
-  rankings: (UserRanking & {
-    user: User
-  })[]
+  rankings: UserRankings[]
 }
