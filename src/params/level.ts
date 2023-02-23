@@ -3,7 +3,7 @@ import { Limit, Offset, Sort } from './generic.js'
 /**
  * @category Level
  */
-export interface LevelsParameters extends Sort {
+export interface LevelsParameters extends Limit, Offset, Sort {
   Id?: number
   Uid?: string
   WorkshopId?: string
