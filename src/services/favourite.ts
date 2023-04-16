@@ -15,4 +15,4 @@ import { handleGet } from '../utils/index.js'
  * const favourites = await getFavourites({ UserId: 1 })
  */
 export const getFavourites = async (parameters: FavouritesParameters) =>
-  handleGet<FavouritesResponse>('favorites/get', parameters)
+  handleGet<FavouritesResponse>('favorites', parameters)
