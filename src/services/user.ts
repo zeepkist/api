@@ -25,7 +25,7 @@ export const getUser = async (parameters: UserParameters) => {
     throw new TypeError('You must provide either an Id or a SteamId')
   }
   return handleGet<User>(
-    parameters.Id ? 'users/id' : 'users/steamid',
+    parameters.Id ? 'users/${parameters.Id}' : 'users/steam/${parameters.SteamId}',
     parameters
   )
 }
