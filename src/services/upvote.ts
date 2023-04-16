@@ -11,4 +11,4 @@ import { handleGet } from '../utils/index.js'
  * const upvotes = await getUpvotes({ LevelId: 1 })
  */
 export const getUpvotes = async (parameters: UpvotesParameters) =>
-  handleGet<UpvotesResponse>('upvotes/get', parameters)
+  handleGet<UpvotesResponse>('upvotes', parameters)
