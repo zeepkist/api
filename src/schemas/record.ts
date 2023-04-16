@@ -10,7 +10,7 @@ export interface LevelRecord {
   id: number
   dateCreated: string
   time: number
-  splits: string // Formatted as `split1|split2|split3`
+  splits: number[]
   ghostUrl: string
   screenshotUrl: string
   isBest: boolean
