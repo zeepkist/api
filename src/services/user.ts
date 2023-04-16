@@ -1,5 +1,4 @@
 import {
-  UserParameters,
   UserRankingParameters,
   UserRankingsParameters,
   UsersParameters
@@ -13,24 +12,6 @@ import {
 import { handleGet } from '../utils/index.js'
 
 /**
- * Get a user by Id or SteamId
- * @category User
- * @example
- * import { getUser } from '@zeepkist/gtr-api'
- *
- * const user = await getUser({ Id: 1 })
- */
-export const getUser = async (parameters: UserParameters) => {
-  if (!parameters.Id && !parameters.SteamId) {
-    throw new TypeError('You must provide either an Id or a SteamId')
-  }
-  return handleGet<User>(
-    parameters.Id ? 'users/${parameters.Id}' : 'users/steam/${parameters.SteamId}',
-    parameters
-  )
-}
-
-/**
  * Get a list of users
  * @category User
  * @example
@@ -40,6 +21,27 @@ export const getUser = async (parameters: UserParameters) => {
  */
 export const getUsers = async (parameters: UsersParameters) =>
   handleGet<UsersResponse>('users', parameters)
+
+/**
+ * Get a user by id.
+ * @category User
+ * @example
+ * import { getUser } from '@zeepkist/gtr-api'
+ *
+ * const user = await getUser(1)
+ */
+export const getUser = async (id: number) => handleGet<User>(`users/${id}`)
+
+/**
+ * Get a user by steam id.
+ * @category User
+ * @example
+ * import { getUserBySteamId } from '@zeepkist/gtr-api'
+ *
+ * const user = await getUserBySteamId('76561198000000000')
+ */
+export const getUserBySteamId = async (steamId: string) =>
+  handleGet<User>(`users/steam/${steamId}`)
 
 /**
  * Get a user's world record count rank

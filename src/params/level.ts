@@ -4,11 +4,10 @@ import { Limit, Offset, Sort } from './generic.js'
  * @category Level
  */
 export interface LevelsParameters extends Limit, Offset, Sort {
-  Id?: number
-  Uid?: string
-  WorkshopId?: string
   Author?: string
   Name?: string
+  Uid?: string
+  WorkshopId?: string
   ValidOnly?: boolean
   InvalidOnly?: boolean
 }
