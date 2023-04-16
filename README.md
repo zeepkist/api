@@ -2,7 +2,9 @@
 
 Fully typed TypeScript API client for the [GTR API](https://api.zeepkist-gtr.com).
 
-Up-to-date with `v0.16.2` of the GTR API.
+Up-to-date with `v0.17.1` of the GTR API.
+
+Download the GTR mod for Zeepkist in [Modkist](https://zeepkist.fandom.com/wiki/Modkist_(Mod_Manager)) (Zeepkist's Mod Loader) or on [mod.io](https://zeepkist.mod.io/zeepkist-gtr)
 
 ## Usage
 
@@ -11,15 +13,15 @@ Up-to-date with `v0.16.2` of the GTR API.
 ```html
 <script type="module">
   import { getRecords } from 'https://esm.run/@zeepkist/gtr-api'
-  
+
   async function displayRecords() {
     const records = await getRecords({
       BestOnly: true
     })
-  
+
     console.log(records) // { totalAmount: 700, records: [{ ... }] }
   }
-  
+
   displayRecords()
 </script>
 ```
