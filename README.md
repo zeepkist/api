@@ -2,7 +2,7 @@
 
 Fully typed TypeScript API client for the [GTR API](https://api.zeepkist-gtr.com).
 
-Up-to-date with `v0.17.1` of the GTR API.
+Up-to-date with `v0.17.6` of the GTR API.
 
 Download the GTR mod for Zeepkist in [Modkist](https://zeepkist.fandom.com/wiki/Modkist_(Mod_Manager)) (Zeepkist's Mod Loader) or on [mod.io](https://zeepkist.mod.io/zeepkist-gtr)
 
