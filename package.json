@@ -4,10 +4,10 @@
   "license": "MIT",
   "description": "Fully typed API client for the Zeepkist GTR API",
   "author": "James Harris <wopian@wopian.me>",
-  "homepage": "https://github.com/zeepkist/gtr-api#readme",
-  "repository": "https://github.com/zeepkist/gtr-api",
+  "homepage": "https://github.com/zeepkist/gtr-client#readme",
+  "repository": "https://github.com/zeepkist/gtr-client",
   "bugs": {
-    "url": "https://github.com/zeepkist/gtr-api/issues"
+    "url": "https://github.com/zeepkist/gtr-client/issues"
   },
   "funding": "https://github.com/sponsors/wopian",
   "type": "module",
