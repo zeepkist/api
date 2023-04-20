@@ -20,6 +20,10 @@
     "coverage": "c8 ava",
     "document": "typedoc"
   },
+  "dependencies": {
+    "ky": "~0.33.2",
+    "ky-universal": "~0.11.0"
+  },
   "devDependencies": {
     "@ava/typescript": "~4.0.0",
     "@rushstack/eslint-patch": "~1.2.0",
@@ -84,10 +88,6 @@
     ]
   },
   "packageManager": "yarn@3.5.0",
-  "dependencies": {
-    "ky": "~0.33.2",
-    "ky-universal": "~0.11.0"
-  },
   "keywords": [
     "gtr",
     "zeepkist",
