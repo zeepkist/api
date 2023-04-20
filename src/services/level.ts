@@ -24,6 +24,27 @@ export const getLevels = async (parameters: LevelsParameters) =>
 export const getLevel = async (id: number) => handleGet<Level>(`levels/${id}`)
 
 /**
+ * Get a list of levels that are popular today
+ * @category Level
+ * @example
+ * import { getHotLevels } from '@zeepkist/gtr-api'
+ *
+ * const levels = await getHotLevels()
+ */
+export const getHotLevels = async () => handleGet<LevelsResponse>('levels/hot')
+
+/**
+ * Get a list of levels that are popular this month
+ * @category Level
+ * @example
+ * import { getPopularLevels } from '@zeepkist/gtr-api'
+ *
+ * const levels = await getPopularLevels()
+ */
+export const getPopularLevels = async () =>
+  handleGet<LevelsResponse>('levels/popular')
+
+/**
  * Search for levels
  * @category Level
  * @example
