@@ -20,6 +20,21 @@ export interface Level {
 /**
  * @category Level
  */
+export interface PopularLevel {
+  level: Level
+  recordsCount: number
+}
+
+/**
+ * @category Level
+ */
 export interface LevelsResponse extends PaginatedResponse {
   levels: Level[]
+}
+
+/**
+ * @category Level
+ */
+export interface PopularLevelsResponse {
+  levels: PopularLevel[]
 }

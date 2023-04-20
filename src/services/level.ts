@@ -1,5 +1,9 @@
 import { LevelsParameters, SearchLevelsParameters } from '../params/level.js'
-import { Level, LevelsResponse } from '../schemas/level.js'
+import {
+  Level,
+  LevelsResponse,
+  PopularLevelsResponse
+} from '../schemas/level.js'
 import { handleGet } from '../utils/index.js'
 
 /**
@@ -31,7 +35,8 @@ export const getLevel = async (id: number) => handleGet<Level>(`levels/${id}`)
  *
  * const levels = await getHotLevels()
  */
-export const getHotLevels = async () => handleGet<LevelsResponse>('levels/hot')
+export const getHotLevels = async () =>
+  handleGet<PopularLevelsResponse>('levels/hot')
 
 /**
  * Get a list of levels that are popular this month
@@ -42,7 +47,7 @@ export const getHotLevels = async () => handleGet<LevelsResponse>('levels/hot')
  * const levels = await getPopularLevels()
  */
 export const getPopularLevels = async () =>
-  handleGet<LevelsResponse>('levels/popular')
+  handleGet<PopularLevelsResponse>('levels/popular')
 
 /**
  * Search for levels
