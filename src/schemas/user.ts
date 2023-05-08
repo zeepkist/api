@@ -15,6 +15,7 @@ export interface User {
 export interface UserRanking {
   amountOfWorldRecords: number
   position: number
+  score: number
 }
 
 /**
