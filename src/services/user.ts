@@ -1,8 +1,4 @@
-import {
-  UserRankingParameters,
-  UserRankingsParameters,
-  UsersParameters
-} from '../params/user.js'
+import { UserRankingsParameters, UsersParameters } from '../params/user.js'
 import {
   User,
   UserRanking,
@@ -51,8 +47,8 @@ export const getUserBySteamId = async (steamId: string) =>
  *
  * const ranking = await getUserRanking({ UserId: 1 })
  */
-export const getUserRanking = async (parameters: UserRankingParameters) =>
-  handleGet<UserRanking>('users/ranking', parameters)
+export const getUserRanking = async (id: number) =>
+  handleGet<UserRanking>(`users/ranking/${id}`)
 
 /**
  * Get a list of users by world record count
