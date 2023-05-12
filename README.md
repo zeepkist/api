@@ -2,7 +2,7 @@
 
 Fully typed TypeScript API client for the [GTR API](https://api.zeepkist-gtr.com).
 
-Up-to-date with `v0.17.10` of the GTR API.
+Up-to-date with `v0.17.12` of the GTR API.
 
 Download the GTR mod for Zeepkist in [Modkist](https://zeepkist.fandom.com/wiki/Modkist_(Mod_Manager)) (Zeepkist's Mod Loader) or on [mod.io](https://zeepkist.mod.io/zeepkist-gtr)
 
@@ -62,7 +62,17 @@ const records = await getRecords({
 console.log(records) // { totalAmount: 700, records: [{ ... }] }
 ```
 
-To see all available exports and options, see the [package documentation](https://zeepkist.github.io/gtr-api).
+To see all available exports and options, see the [package documentation](https://zeepkist.github.io/gtr-client).
+
+### How to get a token
+
+1. Redirect your user to `https://auth.zeepkist-gtr.com/external/login?redirectUrl={redirectUrl}` where `{redirectUrl}` is the URL you want to redirect the user to after they have logged in.
+
+2. After the user has logged in, they will be redirected to `{redirectUrl}?token={token}` where `{token}` is a base64 encoded JSON object containing the user's token and other information.
+
+3. Decode the object and use the `AccessToken` property to authenticate your requests.
+
+4. The token is valid for a short period. Once the `AccessExpiry` time has passed, you will need to obtain a new token by sending a request to `https://auth.zeepkist-gtr.com/external/refresh?token={token}` where `{token}` is the `RefreshToken` from the decoded object in Step 3. The response will be a base64 encoded object containing the new `AccessToken`. If the `RefreshExpiry` time has passed, you will need to start the process again from Step 1.
 
 ## Contributing
 

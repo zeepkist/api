@@ -2,13 +2,14 @@
  * @file Vote Service
  */
 
+import { VoteBody } from '../body/vote.js'
 import { VotesAverageParameters, VotesParameters } from '../params/vote.js'
 import {
   VotesAverageResponse,
   VotesCategoryResponse,
   VotesResponse
 } from '../schemas/vote.js'
-import { handleGet } from '../utils/index.js'
+import { handleGet, handlePost } from '../utils/index.js'
 
 /**
  * Get a list of votes for a level
@@ -43,3 +44,14 @@ export const getVotesAverage = async (parameters: VotesAverageParameters) =>
  */
 export const getVotesCategories = async () =>
   handleGet<VotesCategoryResponse>('votes/categories')
+
+/**
+ * Add a vote to a level
+ * @category Vote
+ * @example
+ * import { addVote } from '@zeepkist/gtr-api'
+ *
+ * await addVote({ level: 0, score: 5, category: 3 }, token)
+ */
+export const addVote = async (body: VoteBody, token: string) =>
+  handlePost<never, VoteBody>('votes', body, token)

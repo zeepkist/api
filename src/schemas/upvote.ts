@@ -17,3 +17,8 @@ export interface Upvote {
 export interface UpvotesResponse extends PaginatedResponse {
   upvotes: Upvote[]
 }
+
+/**
+ * @category Upvote
+ */
+export type AddUpvoteResponse = Pick<Upvote, 'id'>

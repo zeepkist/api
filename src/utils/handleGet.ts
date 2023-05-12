@@ -9,7 +9,7 @@ import { stringifyObjectValues } from './index.js'
  * @private
  * @category Utilities
  */
-export const handleGet = async <T>(
+export const handleGet = async <Response>(
   url: string,
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   parameters?: Record<string, any>
@@ -22,5 +22,5 @@ export const handleGet = async <T>(
     searchParams: searchParameters
   })
 
-  return json() as T
+  return json() as Response
 }

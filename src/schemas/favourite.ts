@@ -17,3 +17,8 @@ export interface Favourite {
 export interface FavouritesResponse extends PaginatedResponse {
   favourites: Favourite[]
 }
+
+/**
+ * @category Favourite
+ */
+export type AddFavouriteResponse = Pick<Favourite, 'id'>

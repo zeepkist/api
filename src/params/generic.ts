@@ -9,3 +9,5 @@ export interface Offset {
 export interface Sort {
   Sort?: string
 }
+
+export type Token = string
