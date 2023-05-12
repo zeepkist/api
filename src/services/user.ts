@@ -19,7 +19,7 @@ export const getUsers = async (parameters: UsersParameters) =>
   handleGet<UsersResponse>('users', parameters)
 
 /**
- * Get a user by id.
+ * Get a user by their GTR ID.
  * @category User
  * @example
  * import { getUser } from '@zeepkist/gtr-api'
@@ -29,7 +29,7 @@ export const getUsers = async (parameters: UsersParameters) =>
 export const getUser = async (id: number) => handleGet<User>(`users/${id}`)
 
 /**
- * Get a user by steam id.
+ * Get a user by their Steam ID.
  * @category User
  * @example
  * import { getUserBySteamId } from '@zeepkist/gtr-api'
@@ -38,6 +38,17 @@ export const getUser = async (id: number) => handleGet<User>(`users/${id}`)
  */
 export const getUserBySteamId = async (steamId: string) =>
   handleGet<User>(`users/steam/${steamId}`)
+
+/**
+ * Get a user by their Discord ID.
+ * @category User
+ * @example
+ * import { getUserByDiscordId } from '@zeepkist/gtr-api'
+ *
+ * const user = await getUserByDiscordId('123456789012345678')
+ */
+export const getUserByDiscordId = async (discordId: string) =>
+  handleGet<User>(`users/discord/${discordId}`)
 
 /**
  * Get a user's world record count rank

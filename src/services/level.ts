@@ -1,4 +1,8 @@
-import { LevelsParameters, SearchLevelsParameters } from '../params/level.js'
+import {
+  LevelsParameters,
+  RandomLevelsParameters,
+  SearchLevelsParameters
+} from '../params/level.js'
 import {
   Level,
   LevelsResponse,
@@ -48,6 +52,17 @@ export const getHotLevels = async () =>
  */
 export const getPopularLevels = async () =>
   handleGet<PopularLevelsResponse>('levels/popular')
+
+/**
+ * Get a list of randomly selected levels
+ * @category Level
+ * @example
+ * import { getRandomLevels } from '@zeepkist/gtr-api'
+ *
+ * const levels = await getRandomLevels()
+ */
+export const getRandomLevels = async (parameters: RandomLevelsParameters) =>
+  handleGet<LevelsResponse>('levels/random', parameters)
 
 /**
  * Search for levels

@@ -12,6 +12,8 @@ export interface LevelsParameters extends Limit, Offset, Sort {
   InvalidOnly?: boolean
 }
 
+export interface RandomLevelsParameters extends Limit, Offset {}
+
 /**
  * @category Level
  */
