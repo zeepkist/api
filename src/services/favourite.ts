@@ -1,10 +1,15 @@
 /**
  * @module Favourite
  */
-
+import { FavouriteBody } from '../body/favourite.js'
 import { FavouritesParameters } from '../params/favourite.js'
-import { Favourite, FavouritesResponse } from '../schemas/favourite.js'
-import { handleGet } from '../utils/index.js'
+import { Token } from '../params/generic.js'
+import {
+  AddFavouriteResponse,
+  Favourite,
+  FavouritesResponse
+} from '../schemas/favourite.js'
+import { handleDelete, handleGet, handlePost } from '../utils/index.js'
 
 /**
  * Get a list of a user's favourite tracks.
@@ -27,3 +32,25 @@ export const getFavourites = async (parameters: FavouritesParameters) =>
  */
 export const getFavourite = async (id: number) =>
   handleGet<Favourite>(`favorites/${id}`)
+
+/**
+ * Add a track to a user's favourites.
+ * @category Favourite
+ * @example
+ * import { addFavourite } from '@zeepkist/gtr-api'
+ *
+ * const favourite = await addFavourite({ UserId: 1, LevelId: 1 }, token)
+ */
+export const addFavourite = async (body: FavouriteBody, token: Token) =>
+  handlePost<AddFavouriteResponse, FavouriteBody>('favorites', body, token)
+
+/**
+ * Remove a track from a user's favourites.
+ * @category Favourite
+ * @example
+ * import { removeFavourite } from '@zeepkist/gtr-api'
+ *
+ * await removeFavourite(1, token)
+ */
+export const removeFavourite = async (id: number, token: Token) =>
+  handleDelete(`favorites/${id}`, token)
