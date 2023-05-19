@@ -15,6 +15,8 @@ export interface Level {
   timeSilver: number
   timeBronze: number
   thumbnailUrl: string
+  rank: number // popularity rank
+  points: number // track value
 }
 
 /**
