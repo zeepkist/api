@@ -8,6 +8,8 @@ export interface User {
   steamId: string
   steamName: string
   discordId: string
+  position: number
+  score: number
 }
 
 /**

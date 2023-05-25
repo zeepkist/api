@@ -21,6 +21,10 @@ export interface LevelRecord {
   level: Level
 }
 
+export interface LevelRecordNoLevel extends Omit<LevelRecord, 'level'> {
+  level: null
+}
+
 /**
  * @category Record
  */

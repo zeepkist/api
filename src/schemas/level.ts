@@ -1,4 +1,5 @@
 import { PaginatedResponse } from './generic.js'
+import { LevelRecordNoLevel } from './record.js'
 
 /**
  * @category Level
@@ -17,6 +18,7 @@ export interface Level {
   thumbnailUrl: string
   rank: number // popularity rank
   points: number // track value
+  worldRecord: LevelRecordNoLevel
 }
 
 /**
