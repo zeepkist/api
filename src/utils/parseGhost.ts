@@ -96,6 +96,24 @@ const parseV4Ghost = (version: 4, view: DataView) => {
 
   let offset = 0
 
+  const resetPosition = {
+    x: 0,
+    y: 0,
+    z: 0
+  }
+
+  const deltaPositions = {
+    x: 0,
+    y: 0,
+    z: 0
+  }
+
+  const defaultEuler = {
+    x: Number.NaN,
+    y: Number.NaN,
+    z: Number.NaN
+  }
+
   for (let index = 0; index < frameCount; index++) {
     const isResetFrame = index % framePrecision === 0
 
@@ -109,16 +127,12 @@ const parseV4Ghost = (version: 4, view: DataView) => {
           y: view.getFloat32(offset + 37, true),
           z: view.getFloat32(offset + 41, true)
         },
-        euler: {
-          x: Number.NaN,
-          y: Number.NaN,
-          z: Number.NaN
-        },
+        euler: defaultEuler,
         quaternion: {
-          x: view.getInt16(offset + 45, true),
-          y: view.getInt16(offset + 47, true),
-          z: view.getInt16(offset + 49, true),
-          w: view.getInt16(offset + 51, true)
+          x: view.getInt16(offset + 45, true) / 30_000,
+          y: view.getInt16(offset + 47, true) / 30_000,
+          z: view.getInt16(offset + 49, true) / 30_000,
+          w: view.getInt16(offset + 51, true) / 30_000
         },
         steering: view.getUint8(offset + 53),
         isArmsUp: view.getUint8(offset + 54) == Flags.IsArmsUp,
@@ -126,6 +140,17 @@ const parseV4Ghost = (version: 4, view: DataView) => {
       }
 
       frame.euler = quaternionToEuler(frame.quaternion)
+
+      // Store reset position for delta position calculation
+      resetPosition.x = frame.position.x
+      resetPosition.y = frame.position.y
+      resetPosition.z = frame.position.z
+
+      // Reset aggregated delta positions from previous reset frame
+      deltaPositions.x = 0
+      deltaPositions.y = 0
+      deltaPositions.z = 0
+
       offset += 55 - 29
 
       frames.push(frame)
@@ -137,11 +162,7 @@ const parseV4Ghost = (version: 4, view: DataView) => {
           y: view.getInt16(offset + 35, true) / 10_000,
           z: view.getInt16(offset + 37, true) / 10_000
         },
-        euler: {
-          x: Number.NaN,
-          y: Number.NaN,
-          z: Number.NaN
-        },
+        euler: defaultEuler,
         quaternion: {
           x: view.getInt16(offset + 39, true) / 30_000,
           y: view.getInt16(offset + 41, true) / 30_000,
@@ -154,6 +175,17 @@ const parseV4Ghost = (version: 4, view: DataView) => {
       }
 
       frame.euler = quaternionToEuler(frame.quaternion)
+
+      // Aggregate the delta positions for the current reset frame
+      deltaPositions.x += frame.position.x
+      deltaPositions.y += frame.position.y
+      deltaPositions.z += frame.position.z
+
+      // Apply the delta positions to the current frame
+      frame.position.x += resetPosition.x + deltaPositions.x
+      frame.position.y += resetPosition.y + deltaPositions.y
+      frame.position.z += resetPosition.z + deltaPositions.z
+
       offset += 49 - 29
 
       frames.push(frame)
