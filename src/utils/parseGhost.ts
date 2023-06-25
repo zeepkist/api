@@ -14,12 +14,12 @@ const parseV1Ghost = (version: 1, view: DataView) => {
     const frame: GhostFrame = {
       time: view.getFloat32(offset, true),
       position: {
-        x: view.getFloat32(offset + 4, true),
+        x: view.getFloat32(offset + 4, true) * -1,
         y: view.getFloat32(offset + 8, true),
         z: view.getFloat32(offset + 12, true)
       },
       euler: {
-        x: view.getFloat32(offset + 16, true),
+        x: view.getFloat32(offset + 16, true) * -1,
         y: view.getFloat32(offset + 20, true),
         z: view.getFloat32(offset + 24, true)
       }
@@ -52,12 +52,12 @@ const parseV2V3Ghost = (version: 2 | 3, view: DataView) => {
     const frame: GhostFrame = {
       time: view.getFloat32(offset, true),
       position: {
-        x: view.getFloat32(offset + 4, true),
+        x: view.getFloat32(offset + 4, true) * -1,
         y: view.getFloat32(offset + 8, true),
         z: view.getFloat32(offset + 12, true)
       },
       euler: {
-        x: view.getFloat32(offset + 16, true),
+        x: view.getFloat32(offset + 16, true) * -1,
         y: view.getFloat32(offset + 20, true),
         z: view.getFloat32(offset + 24, true)
       }
@@ -123,15 +123,15 @@ const parseV4Ghost = (version: 4, view: DataView) => {
       const frame: GhostFrameV4 = {
         time,
         position: {
-          x: view.getFloat32(offset + 33, true),
+          x: view.getFloat32(offset + 33, true) * -1,
           y: view.getFloat32(offset + 37, true),
           z: view.getFloat32(offset + 41, true)
         },
         euler: defaultEuler,
         quaternion: {
           x: view.getInt16(offset + 45, true) / 30_000,
-          y: view.getInt16(offset + 47, true) / 30_000,
-          z: view.getInt16(offset + 49, true) / 30_000,
+          y: (view.getInt16(offset + 47, true) / 30_000) * -1,
+          z: (view.getInt16(offset + 49, true) / 30_000) * -1,
           w: view.getInt16(offset + 51, true) / 30_000
         },
         steering: view.getUint8(offset + 53),
@@ -158,15 +158,15 @@ const parseV4Ghost = (version: 4, view: DataView) => {
       const frame: GhostFrameV4 = {
         time,
         position: {
-          x: view.getInt16(offset + 33, true) / 10_000,
+          x: (view.getInt16(offset + 33, true) / 10_000) * -1,
           y: view.getInt16(offset + 35, true) / 10_000,
           z: view.getInt16(offset + 37, true) / 10_000
         },
         euler: defaultEuler,
         quaternion: {
           x: view.getInt16(offset + 39, true) / 30_000,
-          y: view.getInt16(offset + 41, true) / 30_000,
-          z: view.getInt16(offset + 43, true) / 30_000,
+          y: (view.getInt16(offset + 41, true) / 30_000) * -1,
+          z: (view.getInt16(offset + 43, true) / 30_000) * -1,
           w: view.getInt16(offset + 45, true) / 30_000
         },
         steering: view.getUint8(offset + 47),
