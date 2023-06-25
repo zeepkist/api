@@ -1,6 +1,7 @@
 import ky from 'ky-universal'
+import { inflate } from 'pako'
 
-import { parseGhost } from '../index.js'
+import { Ghost, parseGhost } from '../index.js'
 
 /**
  * Download and parse a Ghost of a Record
@@ -27,7 +28,15 @@ import { parseGhost } from '../index.js'
 export const getGhost = async (url: string) => {
   const response = await ky.get(url)
   const buffer = await response.arrayBuffer()
-  const ghost = parseGhost(buffer)
+  let ghost: Ghost
+
+  try {
+    ghost = parseGhost(buffer)
+  } catch {
+    // Decompress the buffer if the buffer still has gzip compression
+    const decompressed = inflate(buffer)
+    ghost = parseGhost(decompressed.buffer)
+  }
 
   return { ghost, buffer }
 }
