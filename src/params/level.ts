@@ -17,7 +17,7 @@ export interface RandomLevelsParameters extends Limit, Offset {}
 /**
  * @category Level
  */
-export interface SearchLevelsParameters extends Limit, Offset {
+export interface SearchLevelsParameters extends Limit, Offset, Sort {
   Query?: string
   MinAuthor?: number
   MaxAuthor?: number
