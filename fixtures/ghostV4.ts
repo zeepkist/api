@@ -1,9 +1,8 @@
-import ky from 'ky'
-
 /**
  * Download and convert ghost binary data to base64
  */
 /*
+import ky from 'ky'
 const arrayBuffer = await ky.get('https://storage.googleapis.com/download/storage/v1/b/zeepkist-gtr/o/ghosts%2F3a40f4ec-4717-4517-b1c0-4509f050d977.bin?generation=1688010987783466&alt=media').arrayBuffer()
 const base64 = btoa(String.fromCharCode(...new Uint8Array(arrayBuffer)))
 */
@@ -14,7 +13,7 @@ const base64 =
 const decodedString = atob(base64)
 const decodedUint8Array = new Uint8Array(decodedString.length)
 for (let index = 0; index < decodedString.length; index++) {
-  decodedUint8Array[index] = decodedString.charCodeAt(index)
+  decodedUint8Array[index] = decodedString.codePointAt(index) ?? 0
 }
 
 export const ghostV4 = decodedUint8Array.buffer
