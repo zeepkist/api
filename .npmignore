@@ -5,6 +5,7 @@ coverage
 data
 output
 fixtures
+dist/fixtures
 .eslintrc.cjs
 .prettierignore
 .prettierrc.json
