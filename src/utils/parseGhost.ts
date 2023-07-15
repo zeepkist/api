@@ -9,8 +9,11 @@ const parseV1Ghost = (version: 1, view: DataView) => {
   const frameCount = view.getUint32(4, true)
   const frames: GhostFrame[] = []
 
+  const frameSize = 28
+  const offsetEnd = 8 + frameCount * frameSize
   let offset = 8
-  for (let index = 0; index < frameCount; index++) {
+
+  for (; offset < offsetEnd; offset += frameSize) {
     const frame: GhostFrame = {
       time: view.getFloat32(offset, true),
       position: {
@@ -25,7 +28,6 @@ const parseV1Ghost = (version: 1, view: DataView) => {
       }
     }
     frames.push(frame)
-    offset += 28
   }
 
   return {
@@ -37,7 +39,6 @@ const parseV1Ghost = (version: 1, view: DataView) => {
 
 const parseV2V3Ghost = (version: 2 | 3, view: DataView) => {
   const steamId = view.getBigUint64(4, true).toString()
-
   const soapboxId = view.getInt32(12, true)
   const hatId = view.getInt32(16, true)
   const colorId = view.getInt32(20, true)
@@ -46,9 +47,10 @@ const parseV2V3Ghost = (version: 2 | 3, view: DataView) => {
   const frameSize = version === 2 ? 28 : 33
   const frames: GhostFrame[] = []
 
-  for (let index = 0; index < frameCount; index++) {
-    const offset = 28 + index * frameSize
+  const offsetEnd = 28 + frameCount * frameSize
+  let offset = 28
 
+  for (; offset < offsetEnd; offset += frameSize) {
     const frame: GhostFrame = {
       time: view.getFloat32(offset, true),
       position: {
@@ -99,7 +101,7 @@ const parseV4Ghost = (version: 4, view: DataView) => {
     z: Number.NaN
   }
 
-  let offset = 0
+  let offset = 29
   let resetPosition = {
     x: 0,
     y: 0,
@@ -109,62 +111,58 @@ const parseV4Ghost = (version: 4, view: DataView) => {
   for (let index = 0; index < frameCount; index++) {
     const isResetFrame = index % framePrecision === 0
 
-    const time = view.getFloat32(offset + 29, true)
+    const time = view.getFloat32(offset, true)
 
     if (isResetFrame) {
       const frame: GhostFrameV4 = {
         time,
         position: {
-          x: view.getFloat32(offset + 33, true) * -1,
-          y: view.getFloat32(offset + 37, true),
-          z: view.getFloat32(offset + 41, true)
+          x: view.getFloat32(offset + 4, true) * -1,
+          y: view.getFloat32(offset + 8, true),
+          z: view.getFloat32(offset + 12, true)
         },
         euler: defaultEuler,
         quaternion: {
-          x: view.getInt16(offset + 45, true) / 30_000,
-          y: (view.getInt16(offset + 47, true) / 30_000) * -1,
-          z: (view.getInt16(offset + 49, true) / 30_000) * -1,
-          w: view.getInt16(offset + 51, true) / 30_000
+          x: view.getInt16(offset + 16, true) / 30_000,
+          y: (view.getInt16(offset + 18, true) / 30_000) * -1,
+          z: (view.getInt16(offset + 20, true) / 30_000) * -1,
+          w: view.getInt16(offset + 22, true) / 30_000
         },
-        steering: view.getUint8(offset + 53),
-        isArmsUp: view.getUint8(offset + 54) == Flags.IsArmsUp,
-        isBraking: view.getUint8(offset + 54) == Flags.IsBraking
+        steering: view.getUint8(offset + 24),
+        isArmsUp: !!(view.getUint8(offset + 25) & Flags.IsArmsUp),
+        isBraking: !!(view.getUint8(offset + 25) & Flags.IsBraking)
       }
 
       frame.euler = quaternionToEuler(frame.quaternion)
+      frames.push(frame)
 
       // Store reset position for delta position calculation
       resetPosition = frame.position
-
-      offset += 55 - 29
-
-      frames.push(frame)
+      offset += 26 // (4 * 4) + (2 * 4) + (1 * 2) bytes
     } else {
       const frame: GhostFrameV4 = {
         time,
         position: {
-          x: (resetPosition.x +=
-            (view.getInt16(offset + 33, true) / 10_000) * -1),
-          y: (resetPosition.y += view.getInt16(offset + 35, true) / 10_000),
-          z: (resetPosition.z += view.getInt16(offset + 37, true) / 10_000)
+          x: (resetPosition.x += (view.getInt16(offset, true) / 10_000) * -1),
+          y: (resetPosition.y += view.getInt16(offset + 2, true) / 10_000),
+          z: (resetPosition.z += view.getInt16(offset + 4, true) / 10_000)
         },
         euler: defaultEuler,
         quaternion: {
-          x: view.getInt16(offset + 39, true) / 30_000,
-          y: (view.getInt16(offset + 41, true) / 30_000) * -1,
-          z: (view.getInt16(offset + 43, true) / 30_000) * -1,
-          w: view.getInt16(offset + 45, true) / 30_000
+          x: view.getInt16(offset + 6, true) / 30_000,
+          y: (view.getInt16(offset + 8, true) / 30_000) * -1,
+          z: (view.getInt16(offset + 10, true) / 30_000) * -1,
+          w: view.getInt16(offset + 12, true) / 30_000
         },
-        steering: view.getUint8(offset + 47),
-        isArmsUp: view.getUint8(offset + 48) == Flags.IsArmsUp,
-        isBraking: view.getUint8(offset + 48) == Flags.IsBraking
+        steering: view.getUint8(offset + 14),
+        isArmsUp: !!(view.getUint8(offset + 15) & Flags.IsArmsUp),
+        isBraking: !!(view.getUint8(offset + 15) & Flags.IsBraking)
       }
 
       frame.euler = quaternionToEuler(frame.quaternion)
-
-      offset += 49 - 29
-
       frames.push(frame)
+
+      offset += 20 // 4 + (2 * 7) + (1 * 2) bytes
     }
   }
 
