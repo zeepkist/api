@@ -4,6 +4,7 @@
 coverage
 data
 output
+fixtures
 .eslintrc.cjs
 .prettierignore
 .prettierrc.json
