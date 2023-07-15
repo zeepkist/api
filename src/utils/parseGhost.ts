@@ -125,8 +125,8 @@ const parseV4Ghost = (version: 4, view: DataView) => {
           w: view.getInt16(offset + 22, true) / 30_000
         },
         steering: view.getUint8(offset + 24),
-        isArmsUp: !!(view.getUint8(offset + 25) & Flags.IsArmsUp),
-        isBraking: !!(view.getUint8(offset + 25) & Flags.IsBraking)
+        isArmsUp: view.getUint8(offset + 25) == Flags.IsArmsUp,
+        isBraking: view.getUint8(offset + 25) == Flags.IsBraking
       }
 
       frame.euler = quaternionToEuler(frame.quaternion)

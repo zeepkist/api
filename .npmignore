@@ -4,6 +4,7 @@
 coverage
 data
 output
+fixtures
 .eslintrc.cjs
 .prettierignore
 .prettierrc.json
@@ -13,6 +14,7 @@ tsconfig.json
 .gitattributes
 .gitignore
 yarn.lock
+src/**/*.spec.ts
 dist/**/*.spec.js
 dist/**/*.spec.d.ts
 .pnp.cjs
