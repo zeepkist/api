@@ -143,9 +143,9 @@ const parseV4Ghost = (version: 4, view: DataView) => {
       const frame: GhostFrameV4 = {
         time,
         position: {
-          x: (resetPosition.x += (view.getInt16(offset, true) / 10_000) * -1),
-          y: (resetPosition.y += view.getInt16(offset + 2, true) / 10_000),
-          z: (resetPosition.z += view.getInt16(offset + 4, true) / 10_000)
+          x: (view.getInt16(offset, true) / 10_000) * -1,
+          y: view.getInt16(offset + 2, true) / 10_000,
+          z: view.getInt16(offset + 4, true) / 10_000
         },
         euler: defaultEuler,
         quaternion: {
@@ -158,6 +158,10 @@ const parseV4Ghost = (version: 4, view: DataView) => {
         isArmsUp: !!(view.getUint8(offset + 15) & Flags.IsArmsUp),
         isBraking: !!(view.getUint8(offset + 15) & Flags.IsBraking)
       }
+
+      frame.position.x = resetPosition.x += frame.position.x
+      frame.position.y = resetPosition.y += frame.position.y
+      frame.position.z = resetPosition.z += frame.position.z
 
       frame.euler = quaternionToEuler(frame.quaternion)
       frames.push(frame)
