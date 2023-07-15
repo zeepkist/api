@@ -102,11 +102,7 @@ const parseV4Ghost = (version: 4, view: DataView) => {
   }
 
   let offset = 29
-  let resetPosition = {
-    x: 0,
-    y: 0,
-    z: 0
-  }
+  let resetPosition = { x: 0, y: 0, z: 0 }
 
   for (let index = 0; index < frameCount; index++) {
     const isResetFrame = index % framePrecision === 0
@@ -134,29 +130,30 @@ const parseV4Ghost = (version: 4, view: DataView) => {
       }
 
       frame.euler = quaternionToEuler(frame.quaternion)
-      frames.push(frame)
 
       // Store reset position for delta position calculation
-      resetPosition = frame.position
+      resetPosition = structuredClone(frame.position)
+
       offset += 26 // (4 * 4) + (2 * 4) + (1 * 2) bytes
+      frames.push(frame)
     } else {
       const frame: GhostFrameV4 = {
         time,
         position: {
-          x: (view.getInt16(offset, true) / 10_000) * -1,
-          y: view.getInt16(offset + 2, true) / 10_000,
-          z: view.getInt16(offset + 4, true) / 10_000
+          x: (view.getInt16(offset + 4, true) / 10_000) * -1,
+          y: view.getInt16(offset + 6, true) / 10_000,
+          z: view.getInt16(offset + 8, true) / 10_000
         },
         euler: defaultEuler,
         quaternion: {
-          x: view.getInt16(offset + 6, true) / 30_000,
-          y: (view.getInt16(offset + 8, true) / 30_000) * -1,
-          z: (view.getInt16(offset + 10, true) / 30_000) * -1,
-          w: view.getInt16(offset + 12, true) / 30_000
+          x: view.getInt16(offset + 10, true) / 30_000,
+          y: (view.getInt16(offset + 12, true) / 30_000) * -1,
+          z: (view.getInt16(offset + 14, true) / 30_000) * -1,
+          w: view.getInt16(offset + 16, true) / 30_000
         },
-        steering: view.getUint8(offset + 14),
-        isArmsUp: !!(view.getUint8(offset + 15) & Flags.IsArmsUp),
-        isBraking: !!(view.getUint8(offset + 15) & Flags.IsBraking)
+        steering: view.getUint8(offset + 18),
+        isArmsUp: view.getUint8(offset + 19) == Flags.IsArmsUp,
+        isBraking: view.getUint8(offset + 19) == Flags.IsBraking
       }
 
       frame.position.x = resetPosition.x += frame.position.x
@@ -164,9 +161,9 @@ const parseV4Ghost = (version: 4, view: DataView) => {
       frame.position.z = resetPosition.z += frame.position.z
 
       frame.euler = quaternionToEuler(frame.quaternion)
-      frames.push(frame)
 
       offset += 20 // 4 + (2 * 7) + (1 * 2) bytes
+      frames.push(frame)
     }
   }
 
