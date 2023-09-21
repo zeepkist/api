@@ -15,31 +15,5 @@
     "Vote",
     "Utilities",
     "Other"
-  ],
-  "kindSortOrder": [
-        "Reference",
-        "Project",
-        "Module",
-        "Namespace",
-        "Function",
-        "Enum",
-        "EnumMember",
-        "Class",
-        "Interface",
-        "TypeAlias",
-        "Constructor",
-        "Property",
-        "Variable",
-        "Accessor",
-        "Method",
-        "ObjectLiteral",
-        "Parameter",
-        "TypeParameter",
-        "TypeLiteral",
-        "CallSignature",
-        "ConstructorSignature",
-        "IndexSignature",
-        "GetSignature",
-        "SetSignature",
-    ]
+  ]
 }
