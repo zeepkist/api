@@ -1,4 +1,4 @@
-<!DOCTYPE html><html class="default" lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>getVotesCategories | @zeepkist/gtr-api</title><meta name="description" content="Documentation for @zeepkist/gtr-api"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="../assets/style.css"/><link rel="stylesheet" href="../assets/highlight.css"/><script defer src="../assets/main.js"></script><script async src="../assets/search.js" id="tsd-search-script"></script><script async src="../assets/navigation.js" id="tsd-nav-script"></script></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os"</script><header class="tsd-page-toolbar">
+<!DOCTYPE html><html class="default" lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>getStats | @zeepkist/gtr-api</title><meta name="description" content="Documentation for @zeepkist/gtr-api"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="../assets/style.css"/><link rel="stylesheet" href="../assets/highlight.css"/><script defer src="../assets/main.js"></script><script async src="../assets/search.js" id="tsd-search-script"></script><script async src="../assets/navigation.js" id="tsd-nav-script"></script></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os"</script><header class="tsd-page-toolbar">
 <div class="tsd-toolbar-contents container">
 <div class="table-cell" id="tsd-search" data-base="..">
 <div class="field"><label for="tsd-search-field" class="tsd-widget tsd-toolbar-icon search no-caption"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><use href="#icon-search"></use></svg></label><input type="text" id="tsd-search-field" aria-label="Search"/></div>
@@ -13,21 +13,26 @@
 <div class="tsd-page-title">
 <ul class="tsd-breadcrumb">
 <li><a href="../modules.html">@zeepkist/gtr-api</a></li>
-<li><a href="getVotesCategories.html">getVotesCategories</a></li></ul>
-<h1>Function getVotesCategories</h1></div>
+<li><a href="getStats.html">getStats</a></li></ul>
+<h1>Function getStats</h1></div>
 <section class="tsd-panel">
 <ul class="tsd-signatures">
-<li class="tsd-signature tsd-anchor-link" id="getVotesCategories"><span class="tsd-kind-call-signature">get<wbr/>Votes<wbr/>Categories</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/VotesCategoryResponse.html" class="tsd-signature-type tsd-kind-interface">VotesCategoryResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#getVotesCategories" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="getStats"><span class="tsd-kind-call-signature">get<wbr/>Stats</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">parameters</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Stats.html" class="tsd-signature-type tsd-kind-interface">Stats</a><span class="tsd-signature-symbol">&gt;</span><a href="#getStats" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
-<div class="tsd-comment tsd-typography"><p>Get a list of vote categories</p>
+<div class="tsd-comment tsd-typography"><p>Get stats for a user.</p>
 </div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/VotesCategoryResponse.html" class="tsd-signature-type tsd-kind-interface">VotesCategoryResponse</a><span class="tsd-signature-symbol">&gt;</span></h4>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5><span class="tsd-kind-parameter">parameters</span>: <a href="../interfaces/StatsParameters.html" class="tsd-signature-type tsd-kind-interface">StatsParameters</a></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/Stats.html" class="tsd-signature-type tsd-kind-interface">Stats</a><span class="tsd-signature-symbol">&gt;</span></h4>
 <div class="tsd-comment tsd-typography">
-<h4>Example</h4><pre><code class="language-ts"><span class="hl-5">import</span><span class="hl-11"> { </span><span class="hl-6">getVotesCategories</span><span class="hl-11"> } </span><span class="hl-5">from</span><span class="hl-11"> </span><span class="hl-7">&#39;@zeepkist/gtr-api&#39;</span><br/><br/><span class="hl-8">const</span><span class="hl-11"> </span><span class="hl-10">categories</span><span class="hl-11"> = </span><span class="hl-5">await</span><span class="hl-11"> </span><span class="hl-9">getVotesCategories</span><span class="hl-11">()</span>
+<h4>Example</h4><pre><code class="language-ts"><span class="hl-5">import</span><span class="hl-11"> { </span><span class="hl-6">getStats</span><span class="hl-11"> } </span><span class="hl-5">from</span><span class="hl-11"> </span><span class="hl-7">&#39;@zeepkist/gtr-api&#39;</span><br/><br/><span class="hl-8">const</span><span class="hl-11"> </span><span class="hl-10">stats</span><span class="hl-11"> = </span><span class="hl-5">await</span><span class="hl-11"> </span><span class="hl-9">getStats</span><span class="hl-11">({ </span><span class="hl-6">UserId:</span><span class="hl-11"> </span><span class="hl-13">1</span><span class="hl-11"> })</span><br/><br/><span class="hl-8">const</span><span class="hl-11"> </span><span class="hl-10">monthStats</span><span class="hl-11"> = </span><span class="hl-5">await</span><span class="hl-11"> </span><span class="hl-9">getStats</span><span class="hl-11">({</span><br/><span class="hl-11">  </span><span class="hl-6">UserId:</span><span class="hl-11"> </span><span class="hl-13">1</span><span class="hl-11">,</span><br/><span class="hl-11">  </span><span class="hl-6">Month:</span><span class="hl-11"> </span><span class="hl-13">8</span><span class="hl-11">,</span><br/><span class="hl-11">  </span><span class="hl-6">Year:</span><span class="hl-11"> </span><span class="hl-13">2023</span><br/><span class="hl-11">})</span>
 </code><button>Copy</button></pre>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/zeepkist/gtr-client/blob/8df6dda/src/services/vote.ts#L45">services/vote.ts:45</a></li></ul></aside></li></ul></section></div>
+<li>Defined in <a href="https://github.com/zeepkist/gtr-client/blob/8df6dda/src/services/stats.ts#L22">services/stats.ts:22</a></li></ul></aside></li></ul></section></div>
 <div class="col-sidebar">
 <div class="page-menu">
 <div class="tsd-navigation settings">
