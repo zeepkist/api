@@ -1,4 +1,4 @@
-import ky from 'ky-universal'
+import ky from 'ky'
 
 const API_URL = 'https://api.zeepkist-gtr.com/'
 

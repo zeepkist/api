@@ -21,8 +21,7 @@
     "document": "typedoc"
   },
   "dependencies": {
-    "ky": "~1.0.0",
-    "ky-universal": "~0.12.0",
+    "ky": "~1.0.1",
     "pako": "~2.1.0"
   },
   "devDependencies": {
@@ -58,13 +57,12 @@
   },
   "ava": {
     "utilizeParallelBuilds": true,
-    "extensions": {
-      "ts": "module"
-    },
-    "nodeArguments": [
-      "--loader",
-      "tsx"
-    ]
+    "typescript": {
+      "compile": "tsc",
+      "rewritePaths": {
+        "src/": "dist/src/"
+      }
+    }
   },
   "c8": {
     "all": true,
