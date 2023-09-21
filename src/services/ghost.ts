@@ -1,4 +1,4 @@
-import ky from 'ky-universal'
+import ky from 'ky'
 import { inflate } from 'pako'
 
 import { Ghost, parseGhost } from '../index.js'
