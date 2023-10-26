@@ -12,7 +12,7 @@ import { handleDelete, handleGet, handlePost } from '../utils/index.js'
  * Get a list of upvotes for a level
  * @category Upvote
  * @example
- * import { getUpvotes } from '@zeepkist/gtr-api'
+ * import { getUpvotes } from '@zeepkist/api'
  *
  * const upvotes = await getUpvotes({ LevelId: 1 })
  */
@@ -23,7 +23,7 @@ export const getUpvotes = async (parameters: UpvotesParameters) =>
  * Get an upvote by id.
  * @category Upvote
  * @example
- * import { getUpvote } from '@zeepkist/gtr-api'
+ * import { getUpvote } from '@zeepkist/api'
  *
  * const upvote = await getUpvote(1)
  */
@@ -34,7 +34,7 @@ export const getUpvote = async (id: number) =>
  * Add an upvote to a level.
  * @category Upvote
  * @example
- * import { addUpvote } from '@zeepkist/gtr-api'
+ * import { addUpvote } from '@zeepkist/api'
  *
  * const upvote = await addUpvote({ levelId: 1 }, token)
  */
@@ -45,7 +45,7 @@ export const addUpvote = async (body: UpvoteBody, token: Token) =>
  * Remove an upvote from a level.
  * @category Upvote
  * @example
- * import { removeUpvote } from '@zeepkist/gtr-api'
+ * import { removeUpvote } from '@zeepkist/api'
  *
  * await removeUpvote(1, token)
  */

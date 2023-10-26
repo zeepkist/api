@@ -9,7 +9,7 @@ import { handleGet } from '../utils/index.js'
  * Get stats for a user.
  * @category Stats
  * @example
- * import { getStats } from '@zeepkist/gtr-api'
+ * import { getStats } from '@zeepkist/api'
  *
  * const stats = await getStats({ UserId: 1 })
  *
@@ -26,7 +26,7 @@ export const getStats = async (parameters: StatsParameters) =>
  * Get aggregate stats of all users.
  * @category Stats
  * @example
- * import { getAggregateStats } from '@zeepkist/gtr-api'
+ * import { getAggregateStats } from '@zeepkist/api'
  *
  * const stats = await getAggregateStats()
  *

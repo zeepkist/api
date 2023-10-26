@@ -183,7 +183,7 @@ const parseV4Ghost = (version: 4, view: DataView) => {
  * Parse an already downloaded Ghost from raw binary data into a Ghost object
  * @category Ghost
  * @example Parse a Ghost from binary data
- * import { getGhost, parseGhost } from '@zeepkist/gtr-api'
+ * import { getGhost, parseGhost } from '@zeepkist/api'
  *
  * const ghost = parseGhost(buffer)
  */

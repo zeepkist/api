@@ -7,18 +7,18 @@ import { Ghost, parseGhost } from '../index.js'
  * Download and parse a Ghost of a Record
  * @category Ghost
  * @example Download a specific Ghost
- * import { getGhost } from '@zeepkist/gtr-api'
+ * import { getGhost } from '@zeepkist/api'
  *
  * const ghost = await getGhost('https://storage.googleapis.com/download/storage/v1/b/zeepkist-gtr/o/ghosts%2F....bin')
  *
  * @example Download a Ghost from a Record
- * import { getGhost, getRecentRecords } from '@zeepkist/gtr-api'
+ * import { getGhost, getRecentRecords } from '@zeepkist/api'
  *
  * const recentRecords = await getRecentRecords()
  * const { ghost } = await getGhost(recentRecords[0].ghostUrl)
  *
  * @example Download a Ghost from a Record and parse it later
- * import { getGhost, parseGhost } from '@zeepkist/gtr-api'
+ * import { getGhost, parseGhost } from '@zeepkist/api'
  *
  * const { buffer } = await getGhost('url to ghost file')
  *

@@ -15,7 +15,7 @@ import { handleDelete, handleGet, handlePost } from '../utils/index.js'
  * Get a list of a user's favourite tracks.
  * @category Favourite
  * @example
- * import { getFavourites } from '@zeepkist/gtr-api'
+ * import { getFavourites } from '@zeepkist/api'
  *
  * const favourites = await getFavourites({ UserId: 1 })
  */
@@ -26,7 +26,7 @@ export const getFavourites = async (parameters: FavouritesParameters) =>
  * Get a favourite track by id.
  * @category Favourite
  * @example
- * import { getFavourite } from '@zeepkist/gtr-api'
+ * import { getFavourite } from '@zeepkist/api'
  *
  * const favourite = await getFavourite(1)
  */
@@ -37,7 +37,7 @@ export const getFavourite = async (id: number) =>
  * Add a track to a user's favourites.
  * @category Favourite
  * @example
- * import { addFavourite } from '@zeepkist/gtr-api'
+ * import { addFavourite } from '@zeepkist/api'
  *
  * const favourite = await addFavourite({ UserId: 1, LevelId: 1 }, token)
  */
@@ -48,7 +48,7 @@ export const addFavourite = async (body: FavouriteBody, token: Token) =>
  * Remove a track from a user's favourites.
  * @category Favourite
  * @example
- * import { removeFavourite } from '@zeepkist/gtr-api'
+ * import { removeFavourite } from '@zeepkist/api'
  *
  * await removeFavourite(1, token)
  */

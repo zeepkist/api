@@ -6,7 +6,7 @@ import { handleGet } from '../utils/index.js'
  * Get a list of records
  * @category Record
  * @example
- * import { getRecords } from '@zeepkist/gtr-api'
+ * import { getRecords } from '@zeepkist/api'
  *
  * const records = await getRecords({ UserId: 1 })
  */
@@ -17,7 +17,7 @@ export const getRecords = async (parameters: RecordsParameters) =>
  * Get a list of recent records
  * @category Record
  * @example
- * import { getRecentRecords } from '@zeepkist/gtr-api'
+ * import { getRecentRecords } from '@zeepkist/api'
  *
  * const records = await getRecentRecords()
  */

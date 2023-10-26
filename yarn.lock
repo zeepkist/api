@@ -1103,9 +1103,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@zeepkist/gtr-api@workspace:.":
+"@zeepkist/api@workspace:.":
   version: 0.0.0-use.local
-  resolution: "@zeepkist/gtr-api@workspace:."
+  resolution: "@zeepkist/api@workspace:."
   dependencies:
     "@ava/typescript": ~4.1.0
     "@rushstack/eslint-patch": ~1.5.0

@@ -14,7 +14,7 @@ import { handleGet } from '../utils/index.js'
  * Get a list of levels
  * @category Level
  * @example
- * import { getLevels } from '@zeepkist/gtr-api'
+ * import { getLevels } from '@zeepkist/api'
  *
  * const levels = await getLevels({ Author: 'Yannic' })
  */
@@ -25,7 +25,7 @@ export const getLevels = async (parameters: LevelsParameters) =>
  * Get a level by id.
  * @category Level
  * @example
- * import { getLevel } from '@zeepkist/gtr-api'
+ * import { getLevel } from '@zeepkist/api'
  *
  * const level = await getLevel(1)
  */
@@ -35,7 +35,7 @@ export const getLevel = async (id: number) => handleGet<Level>(`levels/${id}`)
  * Get a list of levels that are popular today
  * @category Level
  * @example
- * import { getHotLevels } from '@zeepkist/gtr-api'
+ * import { getHotLevels } from '@zeepkist/api'
  *
  * const levels = await getHotLevels()
  */
@@ -46,7 +46,7 @@ export const getHotLevels = async () =>
  * Get a list of levels that are popular this month
  * @category Level
  * @example
- * import { getPopularLevels } from '@zeepkist/gtr-api'
+ * import { getPopularLevels } from '@zeepkist/api'
  *
  * const levels = await getPopularLevels()
  */
@@ -57,7 +57,7 @@ export const getPopularLevels = async () =>
  * Get a list of randomly selected levels
  * @category Level
  * @example
- * import { getRandomLevels } from '@zeepkist/gtr-api'
+ * import { getRandomLevels } from '@zeepkist/api'
  *
  * const levels = await getRandomLevels()
  */
@@ -68,7 +68,7 @@ export const getRandomLevels = async (parameters: RandomLevelsParameters) =>
  * Search for levels
  * @category Level
  * @example
- * import { searchLevels } from '@zeepkist/gtr-api'
+ * import { searchLevels } from '@zeepkist/api'
  *
  * const levels = await searchLevels({ Query: 'Level 01' })
  */

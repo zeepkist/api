@@ -15,7 +15,7 @@ import { handleGet, handlePost } from '../utils/index.js'
  * Get a list of votes for a level
  * @category Vote
  * @example
- * import { getVotes } from '@zeepkist/gtr-api'
+ * import { getVotes } from '@zeepkist/api'
  *
  * const votes = await getVotes({ UserId: 1 })
  */
@@ -27,7 +27,7 @@ export async function getVotes(parameters: VotesParameters) {
  * Get the average vote score for each category of a level
  * @category Vote
  * @example
- * import { getVotesAverage } from '@zeepkist/gtr-api'
+ * import { getVotesAverage } from '@zeepkist/api'
  *
  * const averageVotes = await getVotesAverage({ LevelId: 1 })
  */
@@ -38,7 +38,7 @@ export const getVotesAverage = async (parameters: VotesAverageParameters) =>
  * Get a list of vote categories
  * @category Vote
  * @example
- * import { getVotesCategories } from '@zeepkist/gtr-api'
+ * import { getVotesCategories } from '@zeepkist/api'
  *
  * const categories = await getVotesCategories()
  */
@@ -49,7 +49,7 @@ export const getVotesCategories = async () =>
  * Add a vote to a level
  * @category Vote
  * @example
- * import { addVote } from '@zeepkist/gtr-api'
+ * import { addVote } from '@zeepkist/api'
  *
  * await addVote({ level: 0, score: 5, category: 3 }, token)
  */

@@ -1,13 +1,13 @@
 {
-  "name": "@zeepkist/gtr-api",
+  "name": "@zeepkist/api",
   "version": "1.0.0",
   "license": "MIT",
-  "description": "Fully typed API client for the Zeepkist GTR API",
+  "description": "Fully typed API client for the Zeepkist GTR and Zworpshop APIs",
   "author": "James Harris <wopian@wopian.me>",
-  "homepage": "https://github.com/zeepkist/gtr-client#readme",
-  "repository": "https://github.com/zeepkist/gtr-client",
+  "homepage": "https://github.com/zeepkist/api#readme",
+  "repository": "https://github.com/zeepkist/api",
   "bugs": {
-    "url": "https://github.com/zeepkist/gtr-client/issues"
+    "url": "https://github.com/zeepkist/api/issues"
   },
   "funding": "https://github.com/sponsors/wopian",
   "type": "module",
@@ -91,6 +91,7 @@
   "keywords": [
     "gtr",
     "zeepkist",
+    "zworpshop",
     "api",
     "client",
     "typescript"
