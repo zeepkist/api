@@ -1,3 +1,4 @@
+import { API } from '../api.js'
 import {
   LevelsParameters,
   RandomLevelsParameters,
@@ -19,7 +20,7 @@ import { handleGet } from '../utils/index.js'
  * const levels = await getLevels({ Author: 'Yannic' })
  */
 export const getLevels = async (parameters: LevelsParameters) =>
-  handleGet<LevelsResponse>('levels', parameters)
+  handleGet<LevelsResponse>('levels', parameters, API.ZWORPSHOP)
 
 /**
  * Get a level by id.
@@ -29,7 +30,8 @@ export const getLevels = async (parameters: LevelsParameters) =>
  *
  * const level = await getLevel(1)
  */
-export const getLevel = async (id: number) => handleGet<Level>(`levels/${id}`)
+export const getLevel = async (id: number) =>
+  handleGet<Level>(`levels/${id}`, undefined, API.ZWORPSHOP)
 
 /**
  * Get a list of levels that are popular today
@@ -62,7 +64,7 @@ export const getPopularLevels = async () =>
  * const levels = await getRandomLevels()
  */
 export const getRandomLevels = async (parameters: RandomLevelsParameters) =>
-  handleGet<LevelsResponse>('levels/random', parameters)
+  handleGet<LevelsResponse>('levels/random', parameters, API.ZWORPSHOP)
 
 /**
  * Search for levels
@@ -73,4 +75,4 @@ export const getRandomLevels = async (parameters: RandomLevelsParameters) =>
  * const levels = await searchLevels({ Query: 'Level 01' })
  */
 export const searchLevels = async (parameters: SearchLevelsParameters) =>
-  handleGet<LevelsResponse>('levels/search', parameters)
+  handleGet<LevelsResponse>('levels/search', parameters, API.ZWORPSHOP)

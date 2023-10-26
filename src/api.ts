@@ -1,7 +1,14 @@
 import ky from 'ky'
 
-const API_URL = 'https://api.zeepkist-gtr.com/'
+export enum API {
+  GTR = 'https://api.zeepkist-gtr.com/',
+  ZWORPSHOP = 'https://api.zworpshop.com/'
+}
 
-export const api: typeof ky = ky.create({
-  prefixUrl: API_URL
+export const gtr: typeof ky = ky.create({
+  prefixUrl: API.GTR
+})
+
+export const zworpshop: typeof ky = ky.create({
+  prefixUrl: API.ZWORPSHOP
 })

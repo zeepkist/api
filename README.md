@@ -1,6 +1,6 @@
 # GTR API
 
-Fully typed TypeScript API client for the [GTR API](https://api.zeepkist-gtr.com/swagger) and [Zworpshop API](https://api.zworpshop.com/swagger).
+Fully typed TypeScript API client for the [GTR API](https://api.zeepkist-gtr.com) and [Zworpshop API](https://api.zworpshop.com/swagger).
 
 Up-to-date with `v0.30.0` of the GTR API.
 
