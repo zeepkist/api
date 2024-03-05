@@ -87,7 +87,7 @@
       "local>wopian/renovate-config"
     ]
   },
-  "packageManager": "yarn@3.8.0",
+  "packageManager": "yarn@3.8.1",
   "keywords": [
     "gtr",
     "zeepkist",
